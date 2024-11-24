@@ -10,9 +10,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Show Test 3 Expected Output
-      run: cat -e test_data/test3_expected.txt
-    - name: Show Test 3 Actual Output
-      run: cat -e test_data/actual3.txt
+    - name: Produce Test 3 Output
+      run: python find_lowest_number.py test_data/test3_input.txt test_data/actual3.txt
     - name: Test 3
-      run: diff -q test_data/test3_expected.txt test_data/actual3.txt || (echo "Test 3 Failed" && exit 1)
+      run: diff test_data/test3_expected.txt test_data/actual3.txt
